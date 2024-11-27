@@ -5,7 +5,7 @@ import YouTube from "react-youtube";
 import "./row.css"
 
 function Row({ title, fetchUrl, isLargeRow }) {
-  const [movies, setMovie] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState("");
 
   const base_url = "https://image.tmdb.org/t/p/original";
@@ -16,7 +16,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
         console.log(fetchUrl)
         const request = await axios.get(fetchUrl);
         console.log(request)
-        setMovie(request.data.results);
+        setMovies(request.data.results);
       } catch (error) {
         console.log("error", error);
       }
